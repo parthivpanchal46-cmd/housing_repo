@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+</head>
+
+<body style="
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #74ebd5, #9face6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+">
+
+    <div style="
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        width: 350px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    ">
+
+        <h2 style="
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        ">
+            🏠 House Price Prediction
+        </h2>
+
+        <form action="/predict" method="POST">
+
+            <label>Area (sq ft)</label>
+            <input type="number" name="area" required
+                style="
+                    width: 100%;
+                    padding: 10px;
+                    margin: 6px 0 12px 0;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+                ">
+
+            <label>Bedrooms</label>
+            <input type="number" name="bedrooms" required
+                style="
+                    width: 100%;
+                    padding: 10px;
+                    margin: 6px 0 12px 0;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+                ">
+
+            <label>Bathrooms</label>
+            <input type="number" name="bathrooms" required
+                style="
+                    width: 100%;
+                    padding: 10px;
+                    margin: 6px 0 12px 0;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+                ">
+
+            <label>Age of House (years)</label>
+            <input type="number" name="age_of_house" required
+                style="
+                    width: 100%;
+                    padding: 10px;
+                    margin: 6px 0 18px 0;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+                ">
+
+            <button type="submit"
+                style="
+                    width: 100%;
+                    padding: 12px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    cursor: pointer;
+                ">
+                Predict Price
+            </button>
+        </form>
+
+        {% if prediction %}
+        <div style="
+            margin-top: 20px;
+            padding: 12px;
+            background: #f0f8ff;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        ">
+            {{ prediction }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
